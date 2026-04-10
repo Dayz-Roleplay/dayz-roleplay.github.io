@@ -3,28 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DayZ Roleplay | Chernarus Survival</title>
+  <title>DayZ Roleplay | Livonia</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-  <style>
-    body {
-      background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1614332287897-cdc485fa562d?q=80&w=2070');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
+  <script src="scripts.js" defer></script>
 </head>
-<body class="text-white font-mono">
+<body>
 
   <!-- Navbar -->
-  <nav class="bg-black/80 border-b border-green-600 sticky top-0 z-50">
+  <nav class="bg-black/90 border-b border-green-600 sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
       <div class="flex items-center gap-3">
         <i class="fas fa-skull text-3xl text-green-500"></i>
         <h1 class="text-2xl font-bold tracking-widest">DAYZ ROLEPLAY</h1>
       </div>
-      <div class="flex gap-8">
+      <div class="flex gap-8 text-sm md:text-base">
         <a href="#about" class="hover:text-green-400 transition">About</a>
         <a href="#rules" class="hover:text-green-400 transition">Rules</a>
         <a href="#server" class="hover:text-green-400 transition">Server</a>
@@ -37,9 +31,10 @@
   <section class="min-h-screen flex items-center justify-center text-center px-6">
     <div class="max-w-4xl">
       <h2 class="text-6xl md:text-7xl font-bold mb-4 tracking-wider text-green-400">
-        SURVIVE TOGETHER
+        LIVONIA ROLEPLAY
       </h2>
-      <p class="text-2xl mb-8 text-gray-300">Serious Roleplay • Chernarus • 1.25x Loot</p>
+      <p class="text-3xl mb-2 text-white">Serious Xbox Roleplay Server</p>
+      <p class="text-xl text-gray-400 mb-10">Realism • Immersion • Player Driven Stories</p>
       
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a href="#discord" 
@@ -53,36 +48,39 @@
         </a>
       </div>
       
-      <p class="mt-12 text-sm text-gray-400">IP: <span class="text-green-400 font-bold">play.dayzrp.com:2302</span></p>
+      <p class="mt-10 text-lg">
+        Server IP: <span class="text-green-400 font-bold">play.dayzrp.com:2302</span>
+      </p>
+      <p class="text-sm text-gray-500 mt-1">Xbox • Livonia • Serious RP</p>
     </div>
   </section>
 
   <!-- About -->
   <section id="about" class="py-20 bg-black/70">
     <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-4xl font-bold text-center mb-12">Welcome to DayZ Roleplay</h2>
+      <h2 class="text-4xl font-bold text-center mb-12">Welcome to DayZ Livonia Roleplay</h2>
       <div class="grid md:grid-cols-2 gap-12 items-center">
         <div>
           <p class="text-lg leading-relaxed text-gray-300">
-            A serious roleplay community set in the harsh lands of Chernarus. 
-            We focus on immersive storytelling, player-driven economies, and realistic survival.
+            A serious Xbox Roleplay community set in the vast forests and cities of Livonia. 
+            We focus on deep character stories, realistic interactions, and high-quality roleplay.
           </p>
           <ul class="mt-8 space-y-4">
-            <li class="flex items-center gap-3"><i class="fas fa-check text-green-500"></i> Active Staff Team</li>
-            <li class="flex items-center gap-3"><i class="fas fa-check text-green-500"></i> Custom RP Framework</li>
-            <li class="flex items-center gap-3"><i class="fas fa-check text-green-500"></i> Weekly Events</li>
-            <li class="flex items-center gap-3"><i class="fas fa-check text-green-500"></i> Mature Community (18+)</li>
+            <li class="flex items-center gap-3"><i class="fas fa-check text-green-500"></i> Serious Roleplay Only</li>
+            <li class="flex items-center gap-3"><i class="fas fa-check text-green-500"></i> Xbox Optimized</li>
+            <li class="flex items-center gap-3"><i class="fas fa-check text-green-500"></i> Active Staff & Events</li>
+            <li class="flex items-center gap-3"><i class="fas fa-check text-green-500"></i> 18+ Mature Community</li>
           </ul>
         </div>
         <div class="bg-gray-900 p-8 rounded-xl border border-green-900">
           <h3 class="text-green-400 text-xl mb-4">Server Features</h3>
           <div class="grid grid-cols-2 gap-4 text-sm">
-            <div>✓ Increased Vehicles</div>
-            <div>✓ Custom Traders</div>
+            <div>✓ Custom RP Framework</div>
             <div>✓ Factions & Gangs</div>
-            <div>✓ Persistent Storage</div>
-            <div>✓ Active Admins</div>
-            <div>✓ Voice Proximity</div>
+            <div>✓ Player Economy</div>
+            <div>✓ Persistent Vehicles</div>
+            <div>✓ Voice Chat Proximity</div>
+            <div>✓ Weekly Events</div>
           </div>
         </div>
       </div>
@@ -93,34 +91,46 @@
   <section id="rules" class="py-20 bg-black/90">
     <div class="max-w-4xl mx-auto px-6">
       <h2 class="text-4xl font-bold text-center mb-12">Server Rules</h2>
-      <div class="space-y-6">
+      <div class="space-y-6 text-lg">
         <div class="flex gap-4">
-          <span class="text-green-400 font-bold text-xl">01</span>
-          <p><strong>No Random Deathmatch (RDM)</strong> — All kills must have valid roleplay reason.</p>
+          <span class="text-green-400 font-bold text-xl shrink-0">01</span>
+          <p><strong>No Random Deathmatch (RDM)</strong> — All kills must have a valid roleplay reason.</p>
         </div>
         <div class="flex gap-4">
-          <span class="text-green-400 font-bold text-xl">02</span>
-          <p><strong>Stay In Character (IC)</strong> — No OOC in global or proximity chat.</p>
+          <span class="text-green-400 font-bold text-xl shrink-0">02</span>
+          <p><strong>No New Life Rule (NLR)</strong> — You may not return to the area of your death or seek revenge for 15 minutes.</p>
         </div>
         <div class="flex gap-4">
-          <span class="text-green-400 font-bold text-xl">03</span>
-          <p><strong>Respect All Players</strong> — No toxicity or harassment.</p>
+          <span class="text-green-400 font-bold text-xl shrink-0">03</span>
+          <p><strong>Stay In Character (IC)</strong> — No OOC talk in proximity or global chat.</p>
         </div>
         <div class="flex gap-4">
-          <span class="text-green-400 font-bold text-xl">04</span>
+          <span class="text-green-400 font-bold text-xl shrink-0">04</span>
+          <p><strong>Respect All Players</strong> — No toxicity, harassment, or meta-gaming.</p>
+        </div>
+        <div class="flex gap-4">
+          <span class="text-green-400 font-bold text-xl shrink-0">05</span>
           <p><strong>18+ Only</strong> — Mature roleplay environment.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Discord & Join -->
+  <!-- Server Info -->
+  <section id="server" class="py-20 bg-black/70">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-4xl font-bold mb-8">Serious Xbox Roleplay</h2>
+      <p class="text-2xl text-green-400">Livonia • 1.25x Loot • Realism Mods</p>
+    </div>
+  </section>
+
+  <!-- Discord -->
   <section id="discord" class="py-24 bg-gradient-to-b from-black to-green-950 text-center">
     <div class="max-w-2xl mx-auto px-6">
       <i class="fab fa-discord text-8xl text-indigo-400 mb-6"></i>
-      <h2 class="text-5xl font-bold mb-4">Join Our Community</h2>
-      <p class="text-xl mb-10">Connect with fellow survivors, find roleplay partners, and stay updated.</p>
-      <a href="https://discord.gg/yourinvite" 
+      <h2 class="text-5xl font-bold mb-4">Join the Community</h2>
+      <p class="text-xl mb-10">Connect with other serious roleplayers on Xbox</p>
+      <a href="https://discord.gg/RWSNpfrtdp" 
          target="_blank"
          class="inline-block bg-indigo-600 hover:bg-indigo-500 text-2xl px-12 py-6 rounded-xl font-bold transition">
         JOIN DISCORD →
@@ -130,8 +140,8 @@
 
   <!-- Footer -->
   <footer class="bg-black py-10 text-center text-sm text-gray-500">
-    <p>&copy; 2026 DayZ Roleplay Community • Not affiliated with Bohemia Interactive</p>
-    <p class="mt-2">Made with ❤️ for the survivors</p>
+    <p>&copy; 2026 DayZ Livonia Roleplay • Serious Xbox Community</p>
+    <p class="mt-2">Not affiliated with Bohemia Interactive</p>
   </footer>
 
 </body>
