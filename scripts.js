@@ -1,115 +1,102 @@
-// scripts.js
-document.addEventListener('DOMContentLoaded', () => {
+:root {
+  --blood: #9f1239;
+  --dark: #0a0a0a;
+}
 
-  // ====================== SMOOTH SCROLLING ======================
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      if (this.getAttribute('href') === '#') return;
-      
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      
-      if (target) {
-        const headerOffset = 80;
-        const elementPosition = target.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.scrollY - headerOffset;
+* { margin:0; padding:0; box-sizing:border-box; }
 
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-      }
-    });
-  });
+body {
+  font-family: 'Courier New', monospace;
+  background: #0a0a0a url('https://images.unsplash.com/photo-1614332287897-cdc485fa562d?q=80&w=2070') center/cover no-repeat fixed;
+  color: #ddd;
+  overflow-x: hidden;
+}
 
-  // ====================== COPY IP BUTTON ======================
-  const copyIPBtn = document.createElement('button');
-  copyIPBtn.innerHTML = `
-    <i class="fas fa-copy"></i> Copy IP
-  `;
-  copyIPBtn.className = `
-    mt-4 bg-zinc-800 hover:bg-zinc-700 transition px-6 py-3 
-    rounded-lg text-sm flex items-center gap-2 mx-auto
-  `;
+.glitch {
+  position: relative;
+  animation: glitch 2s infinite;
+}
 
-  // Find the IP paragraph and add the button
-  const ipParagraph = document.querySelector('p span.text-green-400');
-  if (ipParagraph) {
-    const container = ipParagraph.parentElement;
-    container.classList.add('flex', 'flex-col', 'items-center');
-    container.appendChild(copyIPBtn);
-  }
+@keyframes glitch {
+  0% { text-shadow: 2px 2px #ff0000, -2px -2px #00ff00; }
+  20% { text-shadow: -2px -2px #ff0000, 2px 2px #00ff00; }
+  40% { text-shadow: 2px -2px #ff0000, -2px 2px #00ff00; }
+  100% { text-shadow: 2px 2px #ff0000, -2px -2px #00ff00; }
+}
 
-  copyIPBtn.addEventListener('click', () => {
-    const ip = "play.dayzrp.com:2302";
-    navigator.clipboard.writeText(ip).then(() => {
-      const originalText = copyIPBtn.innerHTML;
-      copyIPBtn.innerHTML = `<i class="fas fa-check text-green-400"></i> Copied!`;
-      
-      setTimeout(() => {
-        copyIPBtn.innerHTML = originalText;
-      }, 2000);
-    });
-  });
+/* Blood Dripping */
+.drips {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 2;
+}
 
-  // ====================== MOBILE HAMBURGER MENU ======================
-  const nav = document.querySelector('nav');
-  
-  const menuButton = document.createElement('button');
-  menuButton.className = "md:hidden text-2xl";
-  menuButton.innerHTML = `<i class="fas fa-bars"></i>`;
-  
-  const navLinks = document.querySelector('nav > div:last-child');
-  
-  // Insert hamburger button
-  nav.querySelector('div').appendChild(menuButton);
+.blood-drop {
+  position: absolute;
+  width: 8px;
+  height: 20px;
+  background: linear-gradient(#9f1239, #4c0519);
+  border-radius: 50% 50% 50% 50%;
+  animation: drip-fall linear infinite;
+  box-shadow: 0 0 10px #9f1239;
+}
 
-  let isMenuOpen = false;
+@keyframes drip-fall {
+  to { transform: translateY(120vh); }
+}
 
-  menuButton.addEventListener('click', () => {
-    isMenuOpen = !isMenuOpen;
-    
-    if (isMenuOpen) {
-      navLinks.classList.add('flex', 'flex-col', 'absolute', 'top-full', 'left-0', 'right-0', 
-                             'bg-black/95', 'border-t', 'border-green-600', 'p-6', 'gap-6', 'text-lg');
-      menuButton.innerHTML = `<i class="fas fa-times"></i>`;
-    } else {
-      navLinks.classList.remove('flex', 'flex-col', 'absolute', 'top-full', 'left-0', 'right-0', 
-                                'bg-black/95', 'border-t', 'border-green-600', 'p-6', 'gap-6', 'text-lg');
-      menuButton.innerHTML = `<i class="fas fa-bars"></i>`;
-    }
-  });
+/* Blood Overlay */
+.blood-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(transparent, rgba(153, 27, 27, 0.1));
+  pointer-events: none;
+  z-index: 999;
+  animation: bloodpulse 8s infinite;
+}
 
-  // Close mobile menu when clicking a link
-  navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      if (isMenuOpen) {
-        menuButton.click();
-      }
-    });
-  });
+@keyframes bloodpulse {
+  0%,100% { opacity: 0.4; }
+  50% { opacity: 0.7; }
+}
 
-  // ====================== FAKE SERVER STATUS (Optional) ======================
-  function updateServerStatus() {
-    const statusHTML = `
-      <div class="inline-flex items-center gap-2 bg-green-900/30 text-green-400 px-4 py-2 rounded-full text-sm">
-        <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-        ONLINE • 87 Players
-      </div>
-    `;
-    // You can insert this somewhere if you want
-  }
+.btn-blood {
+  background: #9f1239;
+  color: white;
+  padding: 1rem 3rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: 3px solid #f87171;
+  transition: all 0.3s;
+}
 
-  // Call it on load
-  updateServerStatus();
+.btn-blood:hover {
+  background: #b91c1c;
+  transform: scale(1.05);
+  box-shadow: 0 0 30px #f87171;
+}
 
-  // ====================== SCROLL EFFECT FOR NAVBAR ======================
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 100) {
-      nav.classList.add('shadow-2xl', 'bg-black/95');
-    } else {
-      nav.classList.remove('shadow-2xl', 'bg-black/95');
-    }
-  });
+.feature-card {
+  background: rgba(153, 27, 27, 0.2);
+  border: 2px solid #9f1239;
+  padding: 2rem;
+  text-align: center;
+  font-weight: bold;
+  transition: 0.3s;
+}
 
-});
+.feature-card:hover {
+  background: #9f1239;
+  color: black;
+  transform: translateY(-10px);
+}
+
+.rule {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #450a0a;
+}
