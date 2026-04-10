@@ -3,139 +3,100 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>1% DayZ Roleplay | Livonia</title>
+  <title>BLOOD MONEY RP | Livonia</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
   <script src="scripts.js" defer></script>
 </head>
-<body>
+<body class="overflow-x-hidden">
+
+  <!-- Blood Overlay -->
+  <div class="blood-overlay"></div>
 
   <!-- Navbar -->
-  <nav class="bg-black/90 border-b border-green-600 sticky top-0 z-50">
+  <nav class="fixed top-0 w-full bg-black/90 border-b-2 border-red-700 z-50">
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
       <div class="flex items-center gap-3">
-        <i class="fas fa-skull text-3xl text-green-500"></i>
-        <h1 class="text-2xl font-bold tracking-widest">DAYZ ROLEPLAY</h1>
+        <i class="fas fa-skull text-4xl text-red-600"></i>
+        <h1 class="text-3xl font-black tracking-widest text-white">BLOOD MONEY RP</h1>
       </div>
-      <div class="flex gap-8 text-sm md:text-base">
-        <a href="#about" class="hover:text-green-400 transition">About</a>
-        <a href="#rules" class="hover:text-green-400 transition">Rules</a>
-        <a href="#server" class="hover:text-green-400 transition">Server</a>
-        <a href="#discord" class="hover:text-green-400 transition">Discord</a>
+      <div class="flex gap-8 text-lg">
+        <a href="#about" class="hover:text-red-500 transition">ABOUT</a>
+        <a href="#rules" class="hover:text-red-500 transition">RULES</a>
+        <a href="#server" class="hover:text-red-500 transition">SERVER</a>
+        <a href="#discord" class="hover:text-red-500 transition">DISCORD</a>
       </div>
     </div>
   </nav>
 
   <!-- Hero -->
-  <section class="min-h-screen flex items-center justify-center text-center px-6">
-    <div class="max-w-4xl">
-      <h2 class="text-6xl md:text-7xl font-bold mb-4 tracking-wider text-green-400">
-        1% RP
-      </h2>
-      <p class="text-4xl md:text-5xl font-bold mb-6 text-white">
-        Serious Roleplay - Livonia -
-      </p>
-      <p class="text-xl text-gray-400 mb-10">Xbox • Serious RP • Immersive Experience</p>
-      
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="#discord" 
-           class="bg-green-600 hover:bg-green-500 px-10 py-4 text-xl font-bold rounded-lg transition flex items-center justify-center gap-3">
-          <i class="fab fa-discord"></i>
-          JOIN DISCORD
-        </a>
-        <a href="#server" 
-           class="border-2 border-white hover:bg-white hover:text-black px-10 py-4 text-xl font-bold rounded-lg transition">
-          SERVER INFO
-        </a>
+  <section class="min-h-screen flex items-center justify-center relative">
+    <div class="absolute inset-0 bg-[radial-gradient(at_center,#450a0a_0%,transparent_70%)]"></div>
+    <div class="text-center z-10 px-6">
+      <h1 class="text-8xl md:text-[9rem] font-black tracking-widest text-red-600 glitch mb-4">
+        BLOOD MONEY
+      </h1>
+      <p class="text-4xl md:text-5xl font-bold text-white mb-6">LIVONIA • SERIOUS RP</p>
+      <p class="text-2xl text-gray-400 mb-12">Xbox • No NLR • Hardcore Roleplay</p>
+
+      <div class="flex flex-col sm:flex-row gap-6 justify-center">
+        <a href="#discord" class="btn-blood">JOIN DISCORD</a>
+        <a href="#server" class="btn-secondary">SERVER INFO</a>
       </div>
-      
-      <p class="mt-10 text-lg">
-        Server IP: <span class="text-green-400 font-bold">www.dayz-rp.com</span>
+
+      <p class="mt-16 text-red-400 font-mono">
+        IP: <span class="text-white">play.bloodmoneyrp.com:2302</span>
       </p>
-      <p class="text-sm text-gray-500 mt-1">Xbox • Livonia • Serious Roleplay</p>
     </div>
+
+    <!-- Dripping Blood Container -->
+    <div class="drips"></div>
   </section>
 
   <!-- About -->
-  <section id="about" class="py-20 bg-black/70">
+  <section id="about" class="py-24 bg-black/95 relative">
     <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-4xl font-bold text-center mb-12">Welcome to DayZ Livonia Roleplay</h2>
-      <div class="grid md:grid-cols-2 gap-12 items-center">
-        <div>
-          <p class="text-lg leading-relaxed text-gray-300">
-            A serious Xbox Roleplay community set in Livonia. 
-            We focus on quality roleplay, character development, and realistic survival.
-          </p>
-          <ul class="mt-8 space-y-4">
-            <li class="flex items-center gap-3"><i class="fas fa-check text-green-500"></i> Serious Roleplay Only</li>
-            <li class="flex items-center gap-3"><i class="fas fa-check text-green-500"></i> Xbox Console Server</li>
-            <li class="flex items-center gap-3"><i class="fas fa-check text-green-500"></i> Active Staff Team</li>
-            <li class="flex items-center gap-3"><i class="fas fa-check text-green-500"></i> 18+ Community</li>
-          </ul>
+      <h2 class="text-5xl font-black text-center mb-16 text-red-500">WELCOME TO THE BLOODSHED</h2>
+      <div class="grid md:grid-cols-2 gap-12">
+        <div class="space-y-6 text-lg">
+          <p>A serious Xbox Roleplay server on Livonia where every bullet, every deal, and every betrayal has meaning.</p>
+          <p>Build your empire. Spill blood. Make money.</p>
         </div>
-        <div class="bg-gray-900 p-8 rounded-xl border border-green-900">
-          <h3 class="text-green-400 text-xl mb-4">Server Features</h3>
-          <div class="grid grid-cols-2 gap-4 text-sm">
-            <div>✓ Custom RP Rules</div>
-            <div>✓ Factions & Gangs</div>
-            <div>✓ Player Driven Economy</div>
-            <div>✓ Persistent Storage</div>
-            <div>✓ Proximity Voice Chat</div>
-            <div>✓ Weekly Events</div>
-          </div>
+        <div class="grid grid-cols-2 gap-6">
+          <div class="feature-card">18+ ONLY</div>
+          <div class="feature-card">NO NLR</div>
+          <div class="feature-card">PLAYER DRIVEN</div>
+          <div class="feature-card">CUSTOM ECONOMY</div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Rules -->
-  <section id="rules" class="py-20 bg-black/90">
+  <section id="rules" class="py-24 bg-zinc-950">
     <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-4xl font-bold text-center mb-12">Server Rules</h2>
-      <div class="space-y-6 text-lg">
-        <div class="flex gap-4">
-          <span class="text-green-400 font-bold text-xl shrink-0">01</span>
-          <p><strong>No Random Deathmatch (RDM)</strong> — All kills must have valid RP reason.</p>
-        </div>
-        <div class="flex gap-4">
-          <span class="text-green-400 font-bold text-xl shrink-0">02</span>
-          <p><strong>No New Life Rule (NLR)</strong> — Do not return to your death location or seek revenge for 15 minutes.</p>
-        </div>
-        <div class="flex gap-4">
-          <span class="text-green-400 font-bold text-xl shrink-0">03</span>
-          <p><strong>Stay In Character</strong> — No OOC in proximity or global chat.</p>
-        </div>
-        <div class="flex gap-4">
-  <span class="text-green-400 font-bold text-xl shrink-0">06</span>
-  <p><strong>Don't Be a Dick</strong> — Be respectful. No toxicity, harassment, bullying, or being a general asshole. We're here to have fun and roleplay.</p>
-</div>
-        <div class="flex gap-4">
-          <span class="text-green-400 font-bold text-xl shrink-0">05</span>
-          <p><strong>18+ Only</strong> — Mature roleplay environment.</p>
-        </div>
+      <h2 class="text-5xl font-black text-center mb-16 text-red-500">SERVER RULES</h2>
+      <div class="space-y-8 text-lg">
+        <div class="rule"><span class="text-red-500 font-bold">01</span> No Random Deathmatch (RDM)</div>
+        <div class="rule"><span class="text-red-500 font-bold">02</span> No New Life Rule (NLR) - 15 min timer</div>
+        <div class="rule"><span class="text-red-500 font-bold">03</span> Stay In Character (IC)</div>
+        <div class="rule"><span class="text-red-500 font-bold">04</span> Respect All Players</div>
+        <div class="rule"><span class="text-red-500 font-bold">05</span> 18+ Mature Environment</div>
+        <div class="rule"><span class="text-red-500 font-bold">06</span> <strong>Don't Be a Dick</strong> — No toxicity, no harassment.</div>
       </div>
     </div>
   </section>
 
   <!-- Discord -->
-  <section id="discord" class="py-24 bg-gradient-to-b from-black to-green-950 text-center">
-    <div class="max-w-2xl mx-auto px-6">
-      <i class="fab fa-discord text-8xl text-indigo-400 mb-6"></i>
-      <h2 class="text-5xl font-bold mb-4">Join the Livonia Survivors</h2>
-      <p class="text-xl mb-10">Serious Xbox Roleplay Community</p>
-      <a href="https://discord.gg/RWSNpfrtdp" 
-         target="_blank"
-         class="inline-block bg-indigo-600 hover:bg-indigo-500 text-2xl px-12 py-6 rounded-xl font-bold transition">
-        JOIN DISCORD →
-      </a>
-    </div>
+  <section id="discord" class="py-32 bg-gradient-to-b from-black via-red-950 to-black text-center">
+    <i class="fas fa-skull text-9xl text-red-600 mb-8 opacity-75"></i>
+    <h2 class="text-6xl font-black mb-6">ENTER THE BLOOD MONEY</h2>
+    <a href="https://discord.gg/yourinvite" target="_blank" class="btn-blood text-3xl px-16 py-8">JOIN DISCORD NOW</a>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-black py-10 text-center text-sm text-gray-500">
-    <p>&copy; 2026 DayZ Livonia Roleplay • Serious Xbox Server</p>
-    <p class="mt-2">Not affiliated with Bohemia Interactive</p>
+  <footer class="py-12 bg-black text-center text-red-800 text-sm">
+    &copy; 2026 BLOOD MONEY RP • Serious Xbox Livonia Roleplay
   </footer>
 
 </body>
