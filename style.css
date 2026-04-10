@@ -1,176 +1,102 @@
-/* ====================== style.css ====================== */
-
 :root {
-  --primary-green: #22c55e;
-  --dark-bg: #0a0a0a;
-  --card-bg: #111111;
-  --text-light: #e5e5e5;
-  --text-muted: #a3a3a3;
+  --blood: #9f1239;
+  --dark: #0a0a0a;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin:0; padding:0; box-sizing:border-box; }
 
 body {
-  font-family: 'Courier New', Courier, monospace;
-  background-color: var(--dark-bg);
-  color: var(--text-light);
-  line-height: 1.6;
+  font-family: 'Courier New', monospace;
+  background: #0a0a0a url('https://images.unsplash.com/photo-1614332287897-cdc485fa562d?q=80&w=2070') center/cover no-repeat fixed;
+  color: #ddd;
   overflow-x: hidden;
 }
 
-/* Background */
-body {
-  background-image: 
-    linear-gradient(rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.88)),
-    url('https://images.unsplash.com/photo-1614332287897-cdc485fa562d?q=80&w=2070');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-}
-
-/* Navbar */
-nav {
-  background-color: rgba(10, 10, 10, 0.95);
-  border-bottom: 2px solid var(--primary-green);
-  transition: all 0.3s ease;
-}
-
-nav.scrolled {
-  background-color: rgba(10, 10, 10, 0.98);
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.5);
-}
-
-/* Hero */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+.glitch {
   position: relative;
+  animation: glitch 2s infinite;
 }
 
-.hero h1 {
-  font-size: 4.5rem;
-  font-weight: 900;
-  letter-spacing: 0.15em;
-  color: var(--primary-green);
-  text-shadow: 0 0 20px rgba(34, 197, 94, 0.5);
+@keyframes glitch {
+  0% { text-shadow: 2px 2px #ff0000, -2px -2px #00ff00; }
+  20% { text-shadow: -2px -2px #ff0000, 2px 2px #00ff00; }
+  40% { text-shadow: 2px -2px #ff0000, -2px 2px #00ff00; }
+  100% { text-shadow: 2px 2px #ff0000, -2px -2px #00ff00; }
 }
 
-.hero .subtitle {
-  font-size: 1.75rem;
-  color: #d1d5db;
-  margin: 1rem 0 2rem;
+/* Blood Dripping */
+.drips {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 2;
 }
 
-/* Buttons */
-.btn-primary {
-  background-color: var(--primary-green);
-  color: black;
-  font-weight: 700;
-  padding: 1rem 2.5rem;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+.blood-drop {
+  position: absolute;
+  width: 8px;
+  height: 20px;
+  background: linear-gradient(#9f1239, #4c0519);
+  border-radius: 50% 50% 50% 50%;
+  animation: drip-fall linear infinite;
+  box-shadow: 0 0 10px #9f1239;
 }
 
-.btn-primary:hover {
-  background-color: #86efac;
-  transform: translateY(-3px);
-  box-shadow: 0 10px 15px -3px rgba(34, 197, 94, 0.4);
+@keyframes drip-fall {
+  to { transform: translateY(120vh); }
 }
 
-.btn-secondary {
-  border: 2px solid white;
+/* Blood Overlay */
+.blood-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(transparent, rgba(153, 27, 27, 0.1));
+  pointer-events: none;
+  z-index: 999;
+  animation: bloodpulse 8s infinite;
+}
+
+@keyframes bloodpulse {
+  0%,100% { opacity: 0.4; }
+  50% { opacity: 0.7; }
+}
+
+.btn-blood {
+  background: #9f1239;
   color: white;
-  font-weight: 700;
-  padding: 1rem 2.5rem;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  padding: 1rem 3rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: 3px solid #f87171;
+  transition: all 0.3s;
 }
 
-.btn-secondary:hover {
-  background-color: white;
-  color: black;
+.btn-blood:hover {
+  background: #b91c1c;
+  transform: scale(1.05);
+  box-shadow: 0 0 30px #f87171;
 }
 
-/* Cards & Sections */
-.section {
-  padding: 5rem 0;
-}
-
-.card {
-  background-color: var(--card-bg);
-  border: 1px solid #374151;
-  border-radius: 12px;
+.feature-card {
+  background: rgba(153, 27, 27, 0.2);
+  border: 2px solid #9f1239;
   padding: 2rem;
-  transition: all 0.3s ease;
+  text-align: center;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
-.card:hover {
-  border-color: var(--primary-green);
-  transform: translateY(-8px);
+.feature-card:hover {
+  background: #9f1239;
+  color: black;
+  transform: translateY(-10px);
 }
 
-/* Rules */
 .rule {
   display: flex;
-  gap: 1.5rem;
-  align-items: flex-start;
-  padding: 1.25rem 0;
-  border-bottom: 1px solid #374151;
-}
-
-.rule:last-child {
-  border-bottom: none;
-}
-
-.rule-number {
-  font-size: 2rem;
-  font-weight: 900;
-  color: var(--primary-green);
-  opacity: 0.9;
-  min-width: 50px;
-}
-
-/* Footer */
-footer {
-  background-color: #0a0a0a;
-  border-top: 1px solid #374151;
-  padding: 3rem 0 2rem;
-  text-align: center;
-  font-size: 0.9rem;
-  color: #6b7280;
-}
-
-/* Utility */
-.text-green {
-  color: var(--primary-green);
-}
-
-.glow-green {
-  text-shadow: 0 0 15px var(--primary-green);
-}
-
-/* Mobile Menu */
-.mobile-menu {
-  display: none;
-}
-
-@media (max-width: 768px) {
-  .mobile-menu {
-    display: block;
-  }
-  
-  .hero h1 {
-    font-size: 3.2rem;
-  }
+  gap: 20px;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #450a0a;
 }
